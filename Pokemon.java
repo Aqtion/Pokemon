@@ -1,26 +1,27 @@
-package pokemon.states.info;
-
 public class Pokemon {
 	public static final int CONSTANT_LEVEL_ADD = 101;
 	public static final int MULTIPLY_LEVEL = 5;
 	public static final int XP_NEEDED_MULTIPLY = 150;
 	public static final int BASE_MULTIPLY = 3;
 	public static final int BASE_ADD = 1;
+	private String name;
 	private int currentHP;
 	private int hp;
 	private int atk;
 	private int def;
 	private int xp;
 	private int level;
-	private PokemonType type;
+	private Type type;
 	private Move[] moves;
 	
-	public Pokemon(int hp, int atk, int def, int xp, int level, Move[] moves) {
+	public Pokemon(String name, int hp, int atk, int def, int xp, int level, Type type, Move[] moves) {
+		this.name = name;
 		this.hp=hp;
 		this.atk=atk;
 		this.def=def;
 		this.xp=xp;
 		this.level=level;
+		this.type = type;
 		this.moves = moves;
 	}
 	public void defeatedPokemon(int opponentLevel) {
@@ -72,5 +73,11 @@ public class Pokemon {
 	}
 	public Move[] getMoves() {
 		return moves;
+	}
+	public void printNameAndType() {
+		System.out.println(getName()+"| "+type +" Type");
+	}
+	public String getName() {
+		return name;
 	}
 }
