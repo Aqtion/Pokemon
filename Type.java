@@ -1,4 +1,4 @@
-package pokemon.states.info;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +12,7 @@ public class Type {
 	public Type(String type) {
 		this.type = type;
 	}
+	
 	static {
 		superEffective.put(new Type("Bug"), new ArrayList<String>(Arrays.asList("Grass", "Dark", "Psychic")));
 		superEffective.put(new Type("Dark"), new ArrayList<String>(Arrays.asList("Ghost","Psychic")));
@@ -30,5 +31,8 @@ public class Type {
 		superEffective.put(new Type("Steel"), new ArrayList<String>(Arrays.asList("Fairy", "Ice", "Rock")));
 		superEffective.put(new Type("Water"), new ArrayList<String>(Arrays.asList("Fire", "Ground", "Rock")));
 		
+	}
+	public String toString() {
+		return type;
 	}
 }
