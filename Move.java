@@ -1,4 +1,4 @@
-package pokemon.states.info;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,11 +13,10 @@ public class Move {
 	public static final int DAMAGE_ADD = 2;
 	public static final int TOTAL_DAMAGE_DIVIDE = 50;
 	public static final int TOTAL_DAMAGE_ADD = 2;
-	public Move(int power, Pokemon pokemon) {
+	public Move(int power) {
 		this.power=power;
-		this.pokemon=pokemon;
 	}
-	public int calcDamage() {
+	public int calcDamage(Pokemon attackingPokemon, Pokemon opposingPokemon) {
 		int level = pokemon.getLevel();
 		int atk = pokemon.getAttack();
 		int def = pokemon.getDefense();
