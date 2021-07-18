@@ -4,6 +4,7 @@ public class Pokemon {
 	public static final int XP_NEEDED_MULTIPLY = 150;
 	public static final int BASE_MULTIPLY = 3;
 	public static final int BASE_ADD = 1;
+	public static final int HP_MINIMUM = 0;
 	private String name;
 	private int currentHP;
 	private int hp;
@@ -41,14 +42,15 @@ public class Pokemon {
 		def+=generateFactor();
 	}
 	public void heal() {
+		//TODO maybe throw in different types of healing
 		currentHP=hp;
 	}
 	public void takeDamage(int amountDamageTaken) {
 		currentHP-=amountDamageTaken;
-		currentHP=Math.max(currentHP, 0);
+		currentHP=Math.max(currentHP, HP_MINIMUM);
 	}
 	public boolean isFainted() {
-		return currentHP<=0;
+		return currentHP<=HP_MINIMUM;
 	}
 	private int generateFactor() {
 		int factor = (int)(Math.random()*BASE_MULTIPLY)+BASE_ADD;
@@ -74,10 +76,10 @@ public class Pokemon {
 	public Move[] getMoves() {
 		return moves;
 	}
-	public void printNameAndType() {
-		System.out.println(getName()+"| "+type +" Type");
-	}
 	public String getName() {
 		return name;
+	}
+	public void printNameAndType() {
+		System.out.println(getName()+"| "+type +" Type");
 	}
 }
